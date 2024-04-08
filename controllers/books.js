@@ -56,8 +56,17 @@ async function newBook(req, res) {
 }
 
 async function index(req, res) {
-    const books = await Book.find({});
-    res.render('books/index', { title: 'All Books', books });
+    try {
+        const books = await Book.find({});
+        const booksWithAuthors = await Promise.all(books.map(async function(book) {
+            const author = await Author.findById(book.author);
+            book.authorName = author.firstName + " " + author.lastName;
+            return book;
+        }));
+        res.render('books/index', { title: 'All Books', books: booksWithAuthors });
+    } catch (error) {
+        console.error('Error fetching books:', error);
+    }
 }
 
 async function create(req, res) {
