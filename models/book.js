@@ -88,10 +88,13 @@ const bookSchema = new Schema({
             'Crafts & Hobbies',
         ]
     },
-    publisher: {
+    user: {
         type: Schema.Types.ObjectId,
-        ref: 'Publisher'
-    },
+        ref: 'User',
+        required: true
+      },
+    userName: String,
+    userAvatar: String,
     reviews: [reviewSchema]
 }, {
     timestamps: true

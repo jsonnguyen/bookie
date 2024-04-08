@@ -4,5 +4,6 @@ const booksCtrl = require('../controllers/books');
 const ensuredLoggedIn = require('../config/ensureLoggedIn');
 
 router.get('/', booksCtrl.index);
+router.get('/new', ensuredLoggedIn, booksCtrl.new);
 
 module.exports = router;
