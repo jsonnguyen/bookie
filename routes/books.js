@@ -5,5 +5,6 @@ const ensuredLoggedIn = require('../config/ensureLoggedIn');
 
 router.get('/', booksCtrl.index);
 router.get('/new', ensuredLoggedIn, booksCtrl.new);
+router.post('/', ensuredLoggedIn, booksCtrl.create);
 
 module.exports = router;

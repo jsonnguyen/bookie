@@ -38,13 +38,14 @@ const bookSchema = new Schema({
     },
     isbn: {
         type: Number,
-        required: true
+        required: true,
+        unique: true
     },
     image: {
         type: String,
         required: true
     },
-    genre: {
+    genre: [{
         type: String,
         enum: [
             'Fiction',
@@ -87,7 +88,7 @@ const bookSchema = new Schema({
             'Parenting',
             'Crafts & Hobbies',
         ]
-    },
+    }],
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',

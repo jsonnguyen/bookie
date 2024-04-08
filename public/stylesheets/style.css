@@ -17,3 +17,24 @@ a {
 .login img {
   height: 30px;
 }
+
+#bookForm {
+  border: 2px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+  width: 500px; /* Adjust the width as needed */
+}
+
+.genreContainer {
+  max-height: 200px; /* Set the maximum height for the container */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+label {
+  display: inline;
+  margin-bottom: 5px;
+}
+
