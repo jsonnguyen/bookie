@@ -44,14 +44,57 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
-    genre: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Genre'
-    }],
+    genre: {
+        type: String,
+        enum: [
+            'Fiction',
+            'Non-fiction',
+            'Fantasy',
+            'Science Fiction',
+            'Mystery',
+            'Thriller',
+            'Horror',
+            'Romance',
+            'Historical Fiction',
+            'Biography',
+            'Autobiography',
+            'Memoir',
+            'Self-help',
+            'Poetry',
+            'Drama',
+            'Comedy',
+            'Adventure',
+            'Young Adult',
+            'Children',
+            'Graphic Novel',
+            'Crime',
+            'Suspense',
+            'Western',
+            'Satire',
+            'Fairy Tale',
+            'Fable',
+            'Anthology',
+            'Cookbook',
+            'Travel',
+            'Science',
+            'History',
+            'Philosophy',
+            'Religion',
+            'Psychology',
+            'Art',
+            'Music',
+            'Sports',
+            'Parenting',
+            'Crafts & Hobbies',
+        ]
+    },
     publisher: {
         type: Schema.Types.ObjectId,
         ref: 'Publisher'
-    }
+    },
+    reviews: [reviewSchema]
 }, {
     timestamps: true
 });
+
+module.exports = mongoose.model('Book', bookSchema);
