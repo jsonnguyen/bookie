@@ -47,8 +47,19 @@ const genre = [
 module.exports = {
     index,
     new: newBook,
-    create
+    create,
+    show
 };
+
+async function show( req, res) {
+    try {
+        const book = await Book.findById(req.params.id);
+        const author = await Author.findById(book.author);
+        res.render('books/show', { title: book.title, book, author })
+    } catch (error) {
+        console.error('Error fetching book:', error);
+    }
+}
 
 async function newBook(req, res) {
     const authors = await Author.find({});
