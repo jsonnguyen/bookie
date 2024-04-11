@@ -12,7 +12,9 @@
                 <% if (user?._id.equals(list.user)) {%>
                 <tr>
                     <td>
-                        <%= list.title %>
+                        <a href="/<%= user._id %>/lists/<%= list.id %>">
+                            <%= list.title %>
+                        </a>
                     </td>
                 </tr>
                 <% } %>
