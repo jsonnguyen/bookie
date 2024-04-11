@@ -8,6 +8,7 @@ router.get('/:id/lists/new', ensureLoggedIn, listsCtrl.new);
 router.get('/:userId/lists/:listId', ensureLoggedIn, listsCtrl.show);
 router.post('/lists', ensureLoggedIn, listsCtrl.create);
 router.post('/:userId/lists/:listId', ensureLoggedIn, listsCtrl.addToList);
-
+router.put('/:userId/lists/:listId', ensureLoggedIn, listsCtrl.changeList);
+router.delete('/lists/:id', ensureLoggedIn, listsCtrl.deleteFromList);
 
 module.exports = router;

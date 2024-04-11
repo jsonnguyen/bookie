@@ -12,14 +12,37 @@
         <thead>
             <tr>
                 <th>Title</th>
+                <th></th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             <% list.books.forEach(function (book){ %>
                 <tr>
                     <td>
-                            <%= book.title %>
-                        </a>
+                        <%= book.title %>
+                    </td>
+                    <form action="/<%= user._id %>/lists/<%= list._id %>?_method=PUT" method="POST">
+                        <input type="hidden" name="bookId" value="<%= book._id %>">
+                        <td>
+                            <select name="newListId">
+                                <% user.lists.forEach(function(l) { %>
+                                    <% if(!(l.toString()===list._id.toString())) { %>
+                                        <option value="<%= l._id %>"><%= l.title %></option>
+                                    <% } %>
+                                <% }) %>
+                            </select>
+                        </td>
+                        <td>
+                            <button type="submit">Change List</button>
+                        </td>
+                    </form>
+                    <td>
+                        <form action="/lists/<%= list._id %>?_method=DELETE" method="POST">
+                            <input type="hidden" name="bookId" value="<%= book._id %>">
+                            <button type="submit">X</button>
+                        </form>
                     </td>
                 </tr>
                 <% }) %>
