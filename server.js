@@ -11,7 +11,8 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const booksRouter = require('./routes/books');
 const authorsRouter = require('./routes/authors');
-const reviewsRouter = require('./routes/reviews')
+const reviewsRouter = require('./routes/reviews');
+const listsRouter = require('./routes/lists');
 
 require('dotenv').config();
 require('./config/database');
@@ -44,6 +45,7 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.use('/', listsRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/books', booksRouter);

@@ -87,7 +87,7 @@ async function create(req, res) {
 
     try {
         const book = await Book.create(req.body);
-        res.redirect('/books');
+        res.redirect(`/books/${book._id}`);
     } catch (error) {
         console.log(error);
         res.render('books/new', { errorMsg: error.message });
