@@ -5,7 +5,7 @@ const ensureLoggedIn = require('../config/ensureLoggedIn');
 
 router.get('/:id/lists', ensureLoggedIn, listsCtrl.index);
 router.get('/:id/lists/new', ensureLoggedIn, listsCtrl.new);
-router.post('/:id/lists', ensureLoggedIn, listsCtrl.create);
+router.post('/lists', ensureLoggedIn, listsCtrl.create);
 
 
 module.exports = router;

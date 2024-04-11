@@ -10,6 +10,13 @@ const listSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Book',
     }],
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+      },
+    userName: String,
+    userAvatar: String,
 }, {
     timestamps: true
 });

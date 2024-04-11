@@ -9,10 +9,10 @@ const userSchema = new Schema({
   },
   email: String,
   avatar: String,
-  lists: {
+  lists: [{
     type: Schema.Types.ObjectId,
     ref: 'List'
-},
+}],
 }, {
   timestamps: true
 });

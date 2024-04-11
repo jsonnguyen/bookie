@@ -1,3 +1,23 @@
 <%- include('../partials/header') %>
-<a href="/lists/new">Add a List</a>
+<a href="/<%= user._id %>/lists/new">Add a List</a>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% lists.forEach(function (list){ %>
+                <% if (user?._id.equals(list.user)) {%>
+                <tr>
+                    <td>
+                        <%= list.title %>
+                    </td>
+                </tr>
+                <% } %>
+                <% }) %>
+            </tbody>
+    </table>
+</div>
 <%- include('../partials/footer') %>
