@@ -5,8 +5,9 @@
     <input type="text" name="title">
     <label>Author:</label>
     <select name="author">
+        <option value="">Select an author</option>
         <% authors.forEach(function(a) { %>
-            <option value="<%= a._id %>"><%= a.firstName %> <%= a.lastName %></option>
+            <option value="<%= a._id %>" default=" "><%= a.firstName %> <%= a.lastName %></option>
         <% }); %>
     </select>
     <label>Release Year:</label>
@@ -17,10 +18,12 @@
     <input type="text" name="image">
     <div class="genreContainer">
         <% genre.forEach(function(g) { %>
-            <label>
-              <input type="checkbox" name="genre" value="<%= g %>">
-              <%= g %>
-            </label><br>
+            <div class="checkbox">
+                <input type="checkbox" name="genre" value="<%= g %>">
+                <label>
+                    <%= g %>
+                </label><br>
+            </div>
           <% }); %>
     </div>
     <button type="submit">Add Book</button>

@@ -1,8 +1,10 @@
 <%- include('../partials/header') %>
     <div class="container">
         <div class="book-info">
-            <img src="<%= book.image %>" alt="Book Cover">
-            <div class="details">
+            <div class="image-container">
+                <img src="<%= book.image %>" alt="Book Cover">
+            </div>
+            <div class="book-details">
                 <p><strong>Author:</strong>
                     <%= author.firstName %>
                         <%= author.lastName %>
