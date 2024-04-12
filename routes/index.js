@@ -5,7 +5,7 @@ const passport = require('passport');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   const user = req.user
-  res.render('index', { title: 'Bookview', user });
+  res.render('index', { title: 'Bookview', user, img: '../images/custom-terraria-logo.png', alt: 'Welcome to Bookview' });
 });
 
 router.get('/auth/google', passport.authenticate(
