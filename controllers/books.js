@@ -68,13 +68,8 @@ async function newBook(req, res) {
 
 async function index(req, res) {
     try {
-        const books = await Book.find({});
-        const booksWithAuthors = await Promise.all(books.map(async function(book) {
-            const author = await Author.findById(book.author);
-            book.authorName = author.firstName + " " + author.lastName;
-            return book;
-        }));
-        res.render('books/index', { title: 'All Books', books: booksWithAuthors });
+        const books = await Book.find({}).populate('author');
+        res.render('books/index', { title: 'All Books', books });
     } catch (error) {
         console.error('Error fetching books:', error);
     }

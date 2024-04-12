@@ -8,7 +8,7 @@
           <img src="<%= book.image %>" alt="Book Cover">
           <div class="book--card-details">
             <h2 class="book-title"><%= book.title %></h2>
-            <p><strong>Author:</strong> <%= book.authorName %></p>
+            <p><strong>Author:</strong> <%= book.author.firstName %> <%= book.author.lastName %></p>
             <p><strong>Release Year:</strong> <%= book.releaseYear %></p>
             <p><strong>ISBN:</strong> <%= book.isbn %></p>
           </div>
