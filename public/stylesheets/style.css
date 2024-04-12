@@ -26,6 +26,7 @@ nav {
 }
 
 nav a {
+  color: #3a3737;
   margin-right: 10px;
   text-decoration: none;
 }
@@ -221,3 +222,22 @@ label {
   font-size: 25px;
 }
 
+.home-container {
+  text-align: center; 
+}
+
+.links {
+  margin-top: 20px; 
+}
+
+.links a {
+  font-size: 50px;
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #3a3737;
+}
+
+.links a:hover{
+  color: #000000;
+}

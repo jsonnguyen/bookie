@@ -1,5 +1,19 @@
 <%- include('./partials/header') %>
 
-<img src="/images/custom-terraria-logo.png" alt="Welcome to Bookview">
+<div class="home-container">
+    <img src="/images/custom-terraria-logo.png" alt="Welcome to Bookview">
+    <div class="links">
+        <a href="/books">ALL BOOKS</a>
+        <% if (user) { %>
+            <a href="/books/new">ADD BOOK</a>
+            <a href="/authors/new">ADD AUTHOR</a>
+            <a href="/<%= user._id %>/lists">MY LISTS</a>
+            <a href="/logout">LOG OUT</a>
+        <% } else { %>
+            <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+        <% } %>
+    </div>
+</div>
+
 
 <%- include('./partials/footer') %>
