@@ -30,10 +30,6 @@ async function changeList(req, res) {
         const newList = await List.findById(req.body.newListId);
         currentList.books.pull(req.body.bookId);
         newList.books.push(req.body.bookId);
-        console.log(req.body)
-        console.log(req.params)
-
-
         await currentList.save();
         await newList.save();
         res.redirect(`/${req.user._id}/lists/${req.params.listId}`)
