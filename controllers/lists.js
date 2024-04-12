@@ -57,13 +57,8 @@ async function show(req, res) {
     try {
         const user = await User.findById(req.user._id).populate('lists');
         const list = await List.findById(req.params.listId).populate('books');
-        const books = await Book.find({ _id: { $nin: list.books } });
-        const booksWithAuthors = await Promise.all(books.map(async function(book) {
-            const author = await Author.findById(book.author);
-            book.authorName = author.firstName + " " + author.lastName;
-            return book;
-        }));
-        res.render('lists/show', { title:list.title, list, books: booksWithAuthors, user})
+        const books = await Book.find({ _id: { $nin: list.books } }).populate('author');
+        res.render('lists/show', { title:list.title, list, books, user})
     } catch (error) {
         console.error('Error fetching list:' , error);
     }

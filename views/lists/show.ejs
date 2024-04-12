@@ -3,7 +3,7 @@
 <form action="/<%= user._id %>/lists/<%= list._id %>" method="POST">
     <select name="bookId">
         <% books.forEach(function(b) { %>
-            <option value="<%= b._id %>"><%= b.title %> by <%= b.authorName %></option>
+            <option value="<%= b._id %>"><%= b.title %> by <%= b.author.firstName %> <%= b.author.lastName %></option>
         <% }) %>
     </select>
     <button type="submit">Add to List</button>
